@@ -1,0 +1,16 @@
+name: pruebas ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludo
+        run: echo "Hola mundo"
+      - name: fecha
+        run: date
