@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  verificar_codigo:
     runs-on: ubuntu-latest
     steps:
       - name: Saludo
@@ -18,3 +18,32 @@ jobs:
         uses: actions/checkout@v4
       - name: Listar archivos
         run: ls -R
+
+  desplegar_pagina:
+    needs: verificar_codigo # Depende de que el job de verificación termine con éxito
+    if: github.ref == 'refs/heads/main' # Solo despliega si es la rama 'main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout del Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir Artifactos de Despliegue
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './'
+
+      - name: Iniciar Despliegue a Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

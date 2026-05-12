@@ -1,0 +1,118 @@
+			:root {
+			  --bg: #f6f7f8;
+			  --surface: #ffffff;
+			  --text: #111827;
+			  --muted: #6b7280;
+			  --line: #e5e7eb;
+			  --accent: #0f766e;
+			}
+
+			* {
+			  box-sizing: border-box;
+			  margin: 0;
+			  padding: 0;
+			}
+
+			body {
+			  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			  background: var(--bg);
+			  color: var(--text);
+			  line-height: 1.6;
+			}
+
+			.container {
+			  max-width: 960px;
+			  margin: 0 auto;
+			  padding: 0 1.2rem;
+			}
+
+			header {
+			  border-bottom: 1px solid var(--line);
+			  background: var(--surface);
+			}
+
+			.nav {
+			  height: 68px;
+			  display: flex;
+			  align-items: center;
+			  justify-content: space-between;
+			}
+
+			.brand {
+			  font-size: 1.1rem;
+			  font-weight: 700;
+			  letter-spacing: 0.03em;
+			}
+
+			.nav a {
+			  text-decoration: none;
+			  color: var(--muted);
+			  font-size: 0.95rem;
+			}
+
+			.hero {
+			  padding: 5rem 0 4rem;
+			}
+
+			.hero h1 {
+			  font-size: clamp(2rem, 4vw, 3rem);
+			  line-height: 1.15;
+			  margin-bottom: 1rem;
+			}
+
+			.hero p {
+			  max-width: 620px;
+			  color: var(--muted);
+			  margin-bottom: 1.6rem;
+			}
+
+			.btn {
+			  display: inline-block;
+			  text-decoration: none;
+			  background: var(--accent);
+			  color: #fff;
+			  padding: 0.75rem 1.15rem;
+			  border-radius: 0.5rem;
+			  font-weight: 600;
+			}
+
+			.features {
+			  display: grid;
+			  grid-template-columns: repeat(3, minmax(0, 1fr));
+			  gap: 1rem;
+			  padding-bottom: 3.5rem;
+			}
+
+			.card {
+			  background: var(--surface);
+			  border: 1px solid var(--line);
+			  border-radius: 0.75rem;
+			  padding: 1.1rem;
+			}
+
+			.card h3 {
+			  font-size: 1rem;
+			  margin-bottom: 0.35rem;
+			}
+
+			.card p {
+			  font-size: 0.92rem;
+			  color: var(--muted);
+			}
+
+			footer {
+			  border-top: 1px solid var(--line);
+			  padding: 1rem 0 2rem;
+			  font-size: 0.9rem;
+			  color: var(--muted);
+			}
+
+			@media (max-width: 780px) {
+			  .features {
+			    grid-template-columns: 1fr;
+			  }
+
+			  .hero {
+			    padding-top: 3.5rem;
+			  }
+			}
