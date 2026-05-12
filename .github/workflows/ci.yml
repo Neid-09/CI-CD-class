@@ -14,3 +14,7 @@ jobs:
         run: echo "Hola mundo"
       - name: fecha
         run: date
+      - name: Checkoout repositorio
+        uses: actions/checkout@v4
+      - name: Listar archivos
+        run: ls -R
